@@ -1,0 +1,16 @@
+'''
+class node :
+    def __init__(data) :
+    self.data = data
+    self.next = None
+'''
+def findMid(head) :
+    if head is None:
+        return 0
+    slow=head
+    fast=head
+    # while fast and fast.next:
+    while fast is not None and fast.next is not None:
+        slow=slow.next
+        fast=fast.next.next
+    return slow.data
