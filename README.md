@@ -4,7 +4,6 @@ class Node:
         self.data = data
         self.next = None
 '''
-
 def detectCycle(head):
     if head is None:
         return False
