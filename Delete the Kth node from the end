@@ -1,0 +1,29 @@
+'''
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+'''
+def deleteElement(head, k):
+    if head is None:
+        return 0
+    temp=head
+    n=1
+    while temp.next is not None:
+        n+=1
+        temp=temp.next
+    # print(count)
+    index=n-k
+    if index<0 or index>n-1:
+        return head
+    if index==0:
+        temp=head
+        head=head.next
+        # del temp
+        return head
+    temp=head
+    for i in range(index-1):
+        temp=temp.next
+    if temp.next:
+        temp.next = temp.next.next
+    return head
