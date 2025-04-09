@@ -1,0 +1,20 @@
+'''
+class Node:
+    def __init__(self):
+        self.data = None
+        self.next = None
+        self.prev = None
+'''
+
+def isPalin(head):
+    if head is None or head.next is None:
+        return True
+    tail=head
+    while tail.next is not None:
+        tail=tail.next #shift
+    while head!=tail and tail.next!=head:
+        if head.data!=tail.data:
+            return False
+        tail=tail.prev
+        head=head.next
+    return True
