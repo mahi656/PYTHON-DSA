@@ -1,0 +1,15 @@
+'''
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+'''
+def make_circular(head):
+    if head is None:
+        return None
+    tail=head
+    while tail.next is not None:
+        tail=tail.next
+    tail.next=head
+    return head
