@@ -1,0 +1,17 @@
+row,clo = map(int,input().split())
+matrix = []
+for r in range(row):
+    rows = list(map(int,input().split()))
+    matrix.append(rows)
+# print(matrix)
+
+rotated_matrix = []
+for c in range(clo-1,-1,-1):
+    new_row = []
+    for t in range(row):
+        new_row.append(matrix[t][c])
+    rotated_matrix.append(new_row)
+# print(rotated_matrix)
+
+for what in rotated_matrix:
+    print(" ".join(map(str, what)))
