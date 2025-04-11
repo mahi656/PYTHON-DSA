@@ -1,0 +1,30 @@
+row,clo = map(int,input().split())
+matrix = []
+for r in range(row):
+    rows = list(map(int,input().split()))
+    matrix.append(rows)
+# pint(matrix)
+
+rotated_matrix = []
+for c in range(clo):
+    new_row = []
+    for t in range(row-1,-1,-1):
+        new_row.append(matrix[t][c])
+    rotated_matrix.append(new_row)
+# print(rotated_matrix)
+
+for what in rotated_matrix:
+    print(" ".join(map(str, what)))
+
+n,m = map(int,input().split())
+matrix = []
+for i in range(n):
+    row=list(map(int,input().split()))
+    matrix.append(row)
+# print(matrix)
+a=matrix[::-1]
+# print(a)
+for i in range(m):
+    for j in range(n):
+        print(a[j][i] , end=" ")
+    print()
