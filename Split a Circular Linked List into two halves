@@ -1,0 +1,24 @@
+'''
+class Node:
+    def __init__(self):
+        self.data = None
+        self.next = None
+'''
+def splitList(head, head1, head2):
+  #head pointing to original list 
+  #head1 and head2 pointing to two circular list , needs to be returned back
+  fast=head
+  slow=head
+
+  while fast.next!=head and fast.next.next!=head:
+    slow=slow.next
+    fast=fast.next.next
+  head1=head
+  head2=slow.next
+  slow.next=head
+  cur=head2
+  while cur.next!=head:
+    cur=cur.next
+  
+  cur.next=head2
+  return head1 , head2
