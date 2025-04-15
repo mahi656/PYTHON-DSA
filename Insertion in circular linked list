@@ -1,0 +1,29 @@
+Given a circular linked list consisting of N nodes and an integer K, your task is to add the integer K at the end of the list.
+
+
+
+
+
+
+
+'''
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+'''
+def insertion(head, K):
+    new_node = Node(K)
+    if head is None:
+        new_node.next = new_node
+        return new_node
+
+    temp = head
+    while temp.next != head:
+        temp = temp.next
+        
+    temp.next = new_node
+    new_node.next = head
+
+    return head
