@@ -1,0 +1,53 @@
+'''
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+'''
+class Stack:
+    def __init__(self):
+        self.head=None
+
+    #insert at begining
+    def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    #delete from begininig
+    def pop(self):
+        # if not self.head:
+        if self.head is None:
+            return 0
+        temp = self.head
+        self.head = self.head.next
+        temp_data = temp.data
+        del temp
+        return temp_data
+
+    # def pop(self):
+    #     # if slef.head is None:
+    #     if not self.head:
+    #         return 0
+    #     data = self.head.data
+    #     self.head = self.head.next
+    #     return data
+
+
+
+    # def pop(self):
+    #     if len(self.data)==0:
+    #         return 0
+    #     else:
+    #         return self.data.pop()
+
+    def top(self):
+        if self.head is None:
+            return 0
+        return self.head.data
+
+    # def top(self):
+    #     if len(self.data)==0:
+    #         return 0
+    #     else:
+    #         reutrn self.data[-1]
