@@ -1,0 +1,36 @@
+class Stack:
+    def __init__(self):
+        self.stack=[]
+    
+    def push(self, element, k):
+        # if self.size>=k:
+        if len(self.stack) >= k:
+            print("Stack overflow")
+        else:
+            return self.stack.append(element)
+        # self.element=element
+        # self.k=k
+
+    def pop(self):
+        if self.isEmpty():
+            print("Stack underflow")
+        else:
+            return self.stack.pop()
+    
+    def top(self):
+        if self.isEmpty():
+            print("Empty stack")
+        else:
+            return self.stack[-1]
+        
+
+    def isEmpty(self):
+        return self.size()==0 #here we called the function
+        # if len(self.stack) == 0:
+        #     return True
+        # else:
+        #     return False
+        
+
+    def size(self):
+        return len(self.stack)
