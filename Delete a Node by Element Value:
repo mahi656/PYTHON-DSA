@@ -1,0 +1,16 @@
+def deleteByValue(head, val):
+    if head is None:
+        return None
+
+    # If the head itself holds the value to delete
+    if head.val == val:
+        return head.next
+
+    temp = head
+    while temp.next is not None:
+        if temp.next.val == val:
+            temp.next = temp.next.next
+            break  # Delete only the first occurrence
+        temp = temp.next
+
+    return head
