@@ -1,0 +1,15 @@
+ if head is None:
+        return 0
+    if k<0:
+        return head
+    if k==1:
+        head=head.next
+        return head
+    temp=head
+    count=1
+    while temp.next is not None and count<k-1:
+        temp=temp.next
+        count+=1
+    if temp is not None and temp.next is not None:
+        temp.next=temp.next.next
+    return head
