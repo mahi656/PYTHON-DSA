@@ -1,0 +1,9 @@
+def reverseLL(head):
+    new_node=None
+    temp=head
+    while temp:
+        next_node=temp.next #store
+        temp.next=new_node #2=None ans=None
+        new_node=temp #1<-1
+        temp=next_node #update
+    return new_node
