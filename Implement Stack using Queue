@@ -1,0 +1,19 @@
+class StackFromQueue:
+    def __init__(self, size):
+        self.size=[]
+        self.max_size=size
+    def push(self, a):
+        if len(self.size)>=self.max_size:
+            return False
+        self.size.append(a)
+        return True
+
+    def pop(self):
+        if not self.size:
+            return -1
+        return self.size.pop()
+
+    def top(self):
+        if not self.size:
+            return -1
+        return self.size[-1]
