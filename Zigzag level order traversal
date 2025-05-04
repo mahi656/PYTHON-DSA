@@ -1,0 +1,27 @@
+'''
+class Node:
+    def __init__(self, val=0):
+        self.val = val
+        self.left = None
+        self.right = None
+'''
+from collections import deque
+def zigzag_level_order(root):
+    ans=[]
+    left_to_right=True
+    que=deque([root])
+    while que:
+        level=[]
+        for i in range(len(que)):
+            node=que.popleft()
+            level.append(node.val)
+            if node.left:
+                que.append(node.left)
+            if node.right:
+                que.append(node.right)
+        if not left_to_right:
+            ans.append(level[::-1])
+        else:
+            ans.append(level)
+        left_to_right=not left_to_right
+    return ans
