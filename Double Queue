@@ -1,0 +1,10 @@
+n, k = map(int, input().split())
+lst = list(map(int, input().split()))
+front = 0  
+for i in range(k):
+    a = lst[front]
+    front += 1  
+    a = a * 2
+    lst.append(a)  
+for i in range(front, n + k): 
+    print(lst[i], end=" ")
