@@ -1,0 +1,33 @@
+n = int(input())
+for _ in range(n):
+    str1 = input()
+    str2 = []  
+    is_valid = True
+    
+    for ele in str1:
+        if ele == "(" or ele == "[" or ele == "{":
+            str2.append(ele)
+        elif ele == ")":
+            if len(str2) > 0 and str2[-1] == "(":
+                str2.pop()
+            else:
+                is_valid = False
+                break
+        elif ele == "]":
+            if len(str2) > 0 and str2[-1] == "[":
+                str2.pop()
+            else:
+                is_valid = False
+                break
+        elif ele == "}":
+            if len(str2) > 0 and str2[-1] == "{":
+                str2.pop()
+            else:
+                is_valid = False
+                break
+    
+
+    if is_valid and len(str2) == 0:
+        print("YES")
+    else:
+        print("NO")
