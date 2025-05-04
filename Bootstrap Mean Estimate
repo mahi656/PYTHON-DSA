@@ -1,0 +1,11 @@
+import random
+def bootstrap_mean(data, num_samples):
+   n = len(data)
+   random.seed(2)
+   sample_means = []
+   for _ in range(num_samples):
+      sample = []
+      for _ in range(n):
+         sample.append(random.choice(data))
+      sample_means.append(sum(sample) / n)
+   return round(sum(sample_means) / num_samples, 2)
