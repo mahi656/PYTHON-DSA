@@ -1,0 +1,159 @@
+You are tasked with implementing a strategic turn-based game where two branches of Newton School of Technology — Team Sonipat and Team Pune — engage in a healthy and intense competition to claim coding supremacy.
+Both teams bid for valuable tech resources over multiple rounds, learning and adapting based on each other's previous strategies.
+The aim is to outsmart the opponent while managing limited energy resources carefully.
+
+
+⚔️ Rules of the Game
+
+The match consists of R rounds between Team Sonipat and Team Pune.
+
+In each round:
+
+There are N different tech resources up for grabs (mentorship hours, cloud credits, AI tokens, debugging tools, etc.).
+
+Both teams are provided with E units of energy to distribute as their bids across these N resources.
+
+The energy E may vary each round, but remains the same for both teams.
+
+Bids are made simultaneously and secretly without knowledge of the opponent’s current bidding.
+
+
+🔁 Strategic Adaptation
+
+In the first round, teams have no prior information and must bid blindly.
+
+From Round 2 onwards, before placing new bids, each team is shown the entire bidding allocation of their opponent from the previous round.
+
+Teams can analyze this information to adapt and counter the opponent's strategies in future rounds.
+
+
+📈 Scoring System (Per Round)
+
+For each resource:
+
+If a team's bid is higher than their opponent's bid, they win that resource and earn 3 points.
+
+If both teams place the same bid on a resource, it is considered a draw, and both teams earn 1 point.
+
+If a team's bid is lower, they lose that resource and earn 0 points.
+
+After evaluating all N resources in a round:
+
+If a team wins more resources than their opponent, they are awarded an additional 3 × N bonus points.
+
+If both teams win an equal number of resources, they both receive N bonus points.
+
+The team with fewer wins does not receive any bonus points.
+
+
+🎯 Objective
+
+The competition is designed to test strategic thinking, resource management, and adaptability over time.
+Your task is to develop a bidding strategy that maximizes your total points across all rounds, leading your team to the top of the leaderboard!
+
+After all matches are completed:
+
+The scores from all rounds and all pairings will be totaled for each strategy.
+The leaderboard will be displayed ranking strategies (your submission) by their percentile score. Best submission will be displayed having 100 points.
+Input
+Input Format:
+
+First, two integers are given:
+
+N: The number of resources up for bidding in each round.
+
+E: The total energy units available for bidding in the first round.
+
+
+Your strategy must generate an array of size N (bidding values), where each element is ≥ 0 and the total sum of elements is ≤ E.
+
+After your move is made in each subsequent round:
+
+An array of size n is provided, representing Team Pune’s previous bids on each resource.
+
+Then, an integer k is given again, representing the new energy units available for the next round.
+
+
+If k = -1 at any point, it signals the end of the game.
+Output
+For each round: Output an array of n integers representing your bids for each resource.
+Each bid must be ≥ 0 and the sum of all bids must be ≤ k (the available energy for that round).
+
+Note:
+You must output your first array of bids before reading any input.
+Then, after each input (opponent’s previous bids and updated energy k), you must immediately output your next array of bids.
+Continue this process until you encounter k = -1, which indicates the end of the game.
+If you do not strictly follow this input-output order, your submission will not be considered for the leaderboard and you will receive 0 marks.
+Example
+Input
+4
+10
+2 3 3 2
+12
+3 3 3 3
+15
+5 5 5 0
+-1
+
+Output
+3 5 2 0
+2 10 0 0
+2 1 0 12
+
+
+
+
+
+
+
+
+
+
+
+CODE-------------------
+
+n = int(input())
+e = int(input())
+
+arr = [0] * n
+if e >= 8:
+    bid = e // 3
+    arr[0] = bid
+    arr[1] = bid
+    total = sum(arr)
+    if (e - total - 1) > 0:
+        arr[2] = e - total - 1
+        arr[3] = 1
+    else:
+        arr[2] = e - total
+else:
+    bid = e // 2
+    arr[0] = bid
+    arr[1] = bid
+    total = sum(arr)
+    if (e - total - 1) > 0:
+        arr[2] = e - total - 1
+        arr[3] = 1
+    else:
+        arr[2] = e - total
+
+print(arr)
+
+while True:
+    opponent_arr = list(map(int, input().split()))
+    e = int(input())
+    if e == -1:
+        break
+
+    arr = [0] * n
+    bid = e // 2
+    arr[0] = bid
+    arr[1] = bid
+    total = sum(arr)
+    if (e - total - 1) > 0:
+        arr[2] = e - total - 1
+        arr[3] = 1
+    else:
+        arr[2] = e - total
+
+    print(arr)
