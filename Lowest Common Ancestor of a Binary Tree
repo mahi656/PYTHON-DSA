@@ -1,0 +1,19 @@
+'''
+class Node:
+    def __init__(self, val=0):
+        self.val = val
+        self.left = None
+        self.right = None
+'''
+
+def lowest_common_ancestor(root, node1, node2):
+    if not root or root == node1 or root == node2:
+        return root
+
+    left = lowest_common_ancestor(root.left, node1, node2)
+    right = lowest_common_ancestor(root.right, node1, node2)
+
+    if left and right:
+        return root
+
+    return left or right
