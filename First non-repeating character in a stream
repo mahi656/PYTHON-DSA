@@ -1,0 +1,23 @@
+from collections import deque
+
+def FirstNonRepeating(S):
+    count = [0] * 26  
+    q = deque()       
+    result = []
+
+    for ch in S:
+        idx = ord(ch) - ord('a')
+        count[idx] += 1
+
+        if count[idx] == 1:
+            q.append(ch)
+
+        while q and count[ord(q[0]) - ord('a')] > 1:
+            q.popleft()
+
+        if q:
+            result.append(q[0])
+        else:
+            result.append('#')
+
+    return ''.join(result)
