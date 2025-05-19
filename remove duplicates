@@ -1,0 +1,26 @@
+"""
+    class Node :
+        def __init__(self, val):
+            self.data = val
+            self.next = None
+
+"""
+def deleteDuplicates(head):
+    while head and head.next is not None and head.data==head.next.data:
+        value=head.data
+        while head and head.data==value:
+            head=head.next
+    if head is None:
+        return None
+    prev=head
+    curr=head.next
+    while curr:
+        if curr.next and curr.data==curr.next.data:
+            value=curr.data
+            while curr and curr.data==value:
+                curr=curr.next
+            prev.next=curr
+        else:
+            prev=curr
+            curr=curr.next
+    return head
