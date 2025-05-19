@@ -1,0 +1,15 @@
+'''
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
+'''
+
+def isPositive(head):
+    count = 0
+    temp = head
+    while temp:
+        if temp.data < 0:
+            count += 1
+        temp = temp.next
+    return "Yes" if count % 2 == 0 else "No"
