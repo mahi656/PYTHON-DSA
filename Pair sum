@@ -1,0 +1,32 @@
+'''
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
+        self.prev = None
+'''
+
+def pairSum(head, K):
+    if not head:
+        return 0
+    # Find tail of the list
+    tail = head
+    while tail.next:
+        tail = tail.next
+    left = head
+    right = tail
+    count = 0
+
+    # Two-pointer traversal
+    while left != right and left.data < right.data:
+        current_sum = left.data + right.data
+        if current_sum == K:
+            count += 1
+            left = left.next
+            right = right.prev
+        elif current_sum < K:
+            left = left.next
+        else:
+            right = right.prev
+
+    return count
