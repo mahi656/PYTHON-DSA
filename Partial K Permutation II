@@ -1,0 +1,12 @@
+def permute_with_repetition(nums,k):
+    result=[]
+    def backtrack(start,path):
+        if start==k:
+            result.append(path[:])
+            return
+        for i in range(len(nums)):
+            path.append(nums[i])
+            backtrack(start+1,path)
+            path.pop()
+    backtrack(0,[])
+    return result
